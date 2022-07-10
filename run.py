@@ -14,17 +14,19 @@ def timer(t, state):
 
 def countdown(sessions, work_time, break_time):
     for i in range(sessions):
-        while work_time:
+        wt = work_time
+        bt = break_time
+        while wt:
             state = '💪Work'
-            timer(work_time, state)
+            timer(wt, state)
             time.sleep(1)
-            work_time -= 1
+            wt -= 1
         print("", end="\r")
-        print('Time for a break!', end="\r")
-        print("", end="\r")
-        while break_time:
+        
+        while bt:
             state = '😎Break'
-            timer(break_time, state)            
+            timer(bt, state)            
             time.sleep(1)
-            break_time -= 1
+            bt -= 1
+        print("", end="\r")
 menu()
